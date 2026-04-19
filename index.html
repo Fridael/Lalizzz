@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Lalizzz 💗</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&family=Dancing+Script:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink-deep: #e75480;
+      --pink-mid: #f4a7bb;
+      --pink-light: #fde8f0;
+      --pink-pale: #fff0f5;
+      --blush: #ffb6c1;
+      --rose: #c2185b;
+      --text: #5a2a3a;
+      --soft: #8b4a6e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--pink-pale);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ── Glitter Canvas ── */
+    #glitter-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Floating Hearts Background ── */
+    .hearts-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .heart-float {
+      position: absolute;
+      bottom: -50px;
+      font-size: 1.2rem;
+      opacity: 0;
+      animation: floatUp linear infinite;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
+      10%  { opacity: 0.6; }
+      90%  { opacity: 0.4; }
+      100% { transform: translateY(-110vh) rotate(20deg) scale(1.2); opacity: 0; }
+    }
+
+    /* ── Main Container ── */
+    .wrapper {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 24px 40px;
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+      animation: fadeDown 1s ease both;
+    }
+
+    .header .emoji-crown {
+      font-size: 2.6rem;
+      display: block;
+      margin-bottom: 10px;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .header h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.4rem, 7vw, 4rem);
+      color: var(--pink-deep);
+      text-shadow: 0 2px 12px rgba(231,84,128,0.3);
+      line-height: 1.2;
+    }
+
+    .header .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--soft);
+      margin-top: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Decorative Divider ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 32px 0;
+      color: var(--pink-mid);
+      font-size: 1.1rem;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--pink-mid), transparent);
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(244,167,187,0.4);
+      border-radius: 24px;
+      padding: 36px 40px;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 32px rgba(231,84,128,0.1), 0 2px 8px rgba(231,84,128,0.06);
+      animation: fadeUp 0.8s ease both;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle, rgba(244,167,187,0.25) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .card:nth-child(2) { animation-delay: 0.15s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+
+    .card .lang-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, var(--pink-deep), var(--rose));
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 99px;
+      margin-bottom: 20px;
+    }
+
+    .card p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      line-height: 1.95;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .card p:last-child { margin-bottom: 0; }
+
+    .highlight {
+      color: var(--pink-deep);
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Footer ── */
+    footer {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 32px 16px 48px;
+    }
+
+    .made-with-love {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.35rem;
+      color: var(--soft);
+    }
+
+    .heart-beat {
+      display: inline-block;
+      color: var(--pink-deep);
+      font-size: 1.5rem;
+      animation: heartBeat 1.2s ease-in-out infinite;
+    }
+
+    @keyframes heartBeat {
+      0%   { transform: scale(1); }
+      14%  { transform: scale(1.3); }
+      28%  { transform: scale(1); }
+      42%  { transform: scale(1.2); }
+      70%  { transform: scale(1); }
+    }
+
+    /* ── Sparkle ring on load ── */
+    .sparkle-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      animation: fadeUp 1s ease 0.6s both;
+    }
+
+    .sparkle-row span {
+      animation: twinkle 1.6s ease-in-out infinite;
+    }
+    .sparkle-row span:nth-child(2) { animation-delay: 0.2s; }
+    .sparkle-row span:nth-child(3) { animation-delay: 0.4s; }
+    .sparkle-row span:nth-child(4) { animation-delay: 0.6s; }
+    .sparkle-row span:nth-child(5) { animation-delay: 0.8s; }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+      50%       { opacity: 0.4; transform: scale(0.7) rotate(20deg); }
+    }
+
+    @media (max-width: 520px) {
+      .card { padding: 26px 22px; }
+      .card p { font-size: 0.97rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Glitter Canvas -->
+<canvas id="glitter-canvas"></canvas>
+
+<!-- Floating Hearts -->
+<div class="hearts-bg" id="heartsBg"></div>
+
+<!-- Main -->
+<div class="wrapper">
+
+  <header class="header">
+    <span class="emoji-crown">🌸</span>
+    <h1>For Lalizzz</h1>
+    <p class="subtitle"> </p>
+  </header>
+
+  <div class="sparkle-row">
+    <span>✨</span><span>💗</span><span>🌸</span><span>💗</span><span>✨</span>
+  </div>
+
+  <div class="divider">💌</div>
+
+  <!-- English Card -->
+  <div class="card">
+    <div class="lang-badge">🇬🇧 English</div>
+
+    <p>
+      <span class="highlight">Lalizzz</span>, after this boost ends, i'll spend a bit more time focusing on my real life,
+      i just need to slowly recover things on my side, but please don't worry —
+      i'm not going anywhere, i'm still here with you and still in the discord server.
+      Maybe sometimes i might miss messages or forget to open it,
+      so i shared my whatsapp for moments like that.
+    </p>
+    <p>
+      I'm not upset with you at all, and i don't have any bad feelings.
+      I only want you to be happy. No matter what happens,
+      <span class="highlight">please be gentle with yourself</span>, okay?
+    </p>
+    <p>
+      We're both adults, so i trust your heart and your decisions.
+    </p>
+    <p>
+      I'll keep learning thai and improving my english little by little,
+      and i'll wait until you feel ready — <span class="highlight">no pressure at all</span>.
+    </p>
+    <p>
+      If you ever feel confused or need someone to talk to, i'll be here quietly for you.
+      We can talk slowly and understand things together.
+    </p>
+    <p>
+      Just think of me as someone who cares about you and is always here in a gentle way
+      whenever you need — <span class="highlight">even if i'm your last choice</span> 💗
+    </p>
+  </div>
+
+  <div class="divider">🌸</div>
+
+  <!-- Thai Card -->
+  <div class="card">
+    <div class="lang-badge">🇹🇭 ภาษาไทย</div>
+
+    <p>
+      <span class="highlight">lalizzz</span> หลังจากบูสต์นี้จบลง ฉันอาจจะต้องโฟกัสกับชีวิตจริงของฉันมากขึ้นนิดหน่อย
+      ค่อย ๆ ฟื้นฟูทุกอย่างของตัวเอง แต่ไม่ต้องกังวลนะ — ฉันไม่ได้ไปไหนเลย
+      ฉันยังอยู่ตรงนี้กับเธอ และยังอยู่ในดิสคอร์ดเหมือนเดิม
+      แค่อาจจะมีบางช่วงที่ฉันไม่ได้เปิดหรือไม่ได้เห็นข้อความ
+      เลยให้ whatsapp ไว้สำหรับเวลาที่ต้องการจริง ๆ
+    </p>
+    <p>
+      ฉันไม่ได้โกรธเธอเลย และก็ไม่มีความรู้สึกไม่ดีใด ๆ
+      ฉันแค่อยากให้เธอมีความสุข ไม่ว่าจะเกิดอะไรขึ้น
+      <span class="highlight">ขอให้เธอใจดีกับตัวเองนะ</span>
+    </p>
+    <p>
+      พวกเราโตกันแล้ว ฉันเชื่อในการตัดสินใจและความรู้สึกของเธอ
+    </p>
+    <p>
+      ฉันจะยังคงเรียนภาษาไทย และพัฒนาภาษาอังกฤษของฉันไปเรื่อย ๆ
+      และฉันจะรอจนกว่าเธอจะพร้อม — <span class="highlight">โดยไม่มีความกดดันเลย</span>
+    </p>
+    <p>
+      ถ้าวันไหนเธอรู้สึกสับสน หรืออยากมีใครสักคนคอยฟัง
+      ฉันจะอยู่ตรงนี้เงียบ ๆ เพื่อเธอ เราสามารถคุยกันช้า ๆ และค่อย ๆ เข้าใจกันไป
+    </p>
+    <p>
+      แค่คิดว่าฉันเป็นคนหนึ่งที่ห่วงใยเธอ
+      และจะอยู่ตรงนี้อย่างอ่อนโยนเสมอ เวลาที่เธอต้องการ
+      <span class="highlight">แม้ว่าฉันจะเป็นตัวเลือกสุดท้ายก็ตาม</span> 💗
+    </p>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="sparkle-row">
+    <span>💖</span><span>🌸</span><span>✨</span><span>🌸</span><span>💖</span>
+  </div>
+  <div class="made-with-love">
+    Made with <span class="heart-beat">♥</span> Love
+  </div>
+  <p class="sender-name">Dennn your VVVIP</p>
+</footer>
+
+<script>
+  // ── Floating Hearts ──
+  const bg = document.getElementById('heartsBg');
+  const heartEmojis = ['💗','💕','🌸','💓','💝','✨','💖'];
+  for (let i = 0; i < 22; i++) {
+    const h = document.createElement('div');
+    h.className = 'heart-float';
+    h.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+    h.style.left = Math.random() * 100 + 'vw';
+    h.style.fontSize = (0.8 + Math.random() * 1.2) + 'rem';
+    h.style.animationDuration = (8 + Math.random() * 14) + 's';
+    h.style.animationDelay = (Math.random() * 12) + 's';
+    h.style.opacity = 0;
+    bg.appendChild(h);
+  }
+
+  // ── Glitter Canvas ──
+  const canvas = document.getElementById('glitter-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const PARTICLE_COUNT = 90;
+  const particles = [];
+
+  const pinkPalette = [
+    'rgba(231,84,128,',
+    'rgba(244,167,187,',
+    'rgba(255,182,193,',
+    'rgba(194,24,91,',
+    'rgba(255,105,135,',
+    'rgba(255,240,245,',
+  ];
+
+  function randomPink() {
+    return pinkPalette[Math.floor(Math.random() * pinkPalette.length)];
+  }
+
+  class Particle {
+    constructor() { this.reset(true); }
+    reset(init = false) {
+      this.x  = Math.random() * W;
+      this.y  = init ? Math.random() * H : -10;
+      this.r  = 1 + Math.random() * 2.5;
+      this.vx = (Math.random() - 0.5) * 0.6;
+      this.vy = 0.4 + Math.random() * 1.1;
+      this.alpha = 0.6 + Math.random() * 0.4;
+      this.flicker = 0.01 + Math.random() * 0.03;
+      this.color = randomPink();
+      this.shape = Math.random() < 0.35 ? 'star' : 'circle';
+      this.angle = Math.random() * Math.PI * 2;
+      this.spin  = (Math.random() - 0.5) * 0.06;
+    }
+    drawStar(cx, cy, r, ctx) {
+      const spikes = 4, outer = r, inner = r * 0.45;
+      let rot = (Math.PI / spikes) * 2;
+      ctx.beginPath();
+      for (let i = 0; i < spikes * 2; i++) {
+        const rr = i % 2 === 0 ? outer : inner;
+        const a  = (rot * i) + this.angle;
+        i === 0
+          ? ctx.moveTo(cx + Math.cos(a) * rr, cy + Math.sin(a) * rr)
+          : ctx.lineTo(cx + Math.cos(a) * rr, cy + Math.sin(a) * rr);
+      }
+      ctx.closePath();
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      this.alpha += Math.sin(Date.now() * this.flicker) * 0.015;
+      this.alpha = Math.max(0.2, Math.min(1, this.alpha));
+      this.angle += this.spin;
+      if (this.y > H + 10) this.reset();
+    }
+    draw() {
+      const a = Math.max(0, Math.min(1, this.alpha));
+      ctx.save();
+      ctx.globalAlpha = a;
+      ctx.fillStyle = this.color + a + ')';
+      ctx.shadowColor = this.color + '0.8)';
+      ctx.shadowBlur = 6;
+      if (this.shape === 'star') {
+        this.drawStar(this.x, this.y, this.r * 1.5, ctx);
+        ctx.fill();
+      } else {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.restore();
+    }
+  }
+
+  for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+  function animate() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animate);
+  }
+  animate();
+</script>
+</body>
+</html>
